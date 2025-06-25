@@ -60,8 +60,12 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-bold text-blue-900">
-              Interflow Mobility
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/lovable-uploads/42f4dceb-b2d9-44e2-add2-4c025adfc890.png" 
+                alt="Alpha Interflow Mobility" 
+                className="h-10 w-auto"
+              />
             </Link>
           </div>
 
