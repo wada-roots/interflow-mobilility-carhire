@@ -29,12 +29,12 @@ const Navbar = () => {
       href: '/fleet',
       hasDropdown: false,
     },
+    { name: 'Airport Transfer', href: '/airport-transfer', hasDropdown: false },
     {
       name: 'Leasing',
       href: '/', // The main Leasing page, if applicable
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Airport Transfers', href: '/leasing/airport-transfers' },
         { name: 'Roadside Assistance', href: '/leasing/roadside-assistance' },
         { name: 'Personal Leasing', href: '/leasing/personal-leasing' },
         { name: 'Corporate Leasing', href: '/leasing/corporate-leasing' },
