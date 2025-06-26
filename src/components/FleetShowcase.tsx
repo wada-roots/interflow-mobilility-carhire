@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import Navbar from './Navbar';
 
 const FleetShowcase = () => {
   const vehicles = [
@@ -50,77 +50,80 @@ const FleetShowcase = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Diverse Fleet
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose from our extensive range of well-maintained vehicles, 
-            from economy cars to luxury SUVs and everything in between.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {vehicles.map((vehicle, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white border border-gray-200 overflow-hidden"
-            >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={vehicle.image} 
-                  alt={vehicle.name}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-blue-900 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {vehicle.category}
-                  </span>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {vehicle.name}
-                </h3>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {vehicle.features.map((feature, idx) => (
-                    <span 
-                      key={idx}
-                      className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm"
-                    >
-                      {feature}
+    <div>
+      <Navbar />
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Diverse Fleet
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choose from our extensive range of well-maintained vehicles, 
+              from economy cars to luxury SUVs and everything in between.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {vehicles.map((vehicle, index) => (
+              <Card 
+                key={index} 
+                className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white border border-gray-200 overflow-hidden"
+              >
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={vehicle.image} 
+                    alt={vehicle.name}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-blue-900 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {vehicle.category}
                     </span>
-                  ))}
+                  </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-orange-500">
-                    {vehicle.price}
-                  </span>
-                  <Button 
-                    size="sm"
-                    className="bg-blue-900 hover:bg-blue-800 text-white"
-                  >
-                    Book Now
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {vehicle.name}
+                  </h3>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {vehicle.features.map((feature, idx) => (
+                      <span 
+                        key={idx}
+                        className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-lg font-bold text-orange-500">
+                      {vehicle.price}
+                    </span>
+                    <Button 
+                      size="sm"
+                      className="bg-blue-900 hover:bg-blue-800 text-white"
+                    >
+                      Book Now
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button 
+              size="lg"
+              variant="outline"
+              className="border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white px-8 py-3"
+            >
+              View Complete Fleet
+            </Button>
+          </div>
         </div>
-        
-        <div className="text-center mt-12">
-          <Button 
-            size="lg"
-            variant="outline"
-            className="border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white px-8 py-3"
-          >
-            View Complete Fleet
-          </Button>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
