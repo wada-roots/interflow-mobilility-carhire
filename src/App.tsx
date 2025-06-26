@@ -8,6 +8,13 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import FleetShowcase from "./components/FleetShowcase";
 import AirportTransfer from "./pages/AirportTransfer";
+import RoadsideAssistance from "./pages/RoadsideAssistance";
+import PersonalLeasing from "./pages/PersonalLeasing";
+import CorporateLeasing from "./pages/CorporateLeasing";
+import BusinessSolutions from "./pages/BusinessSolutions";
+import TruckRental from "./pages/TruckRental";
+import ChauffeuredServices from "./pages/ChauffeuredServices";
+import ContactUs from "./pages/ContactUs";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +28,13 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/fleet" element={<FleetShowcase />} />
           <Route path="/airport-transfer" element={<AirportTransfer />} />
+          <Route path="/leasing/roadside-assistance" element={<RoadsideAssistance />} />
+          <Route path="/leasing/personal-leasing" element={<PersonalLeasing />} />
+          <Route path="/leasing/corporate-leasing" element={<CorporateLeasing />} />
+          <Route path="/leasing/business-solutions" element={<BusinessSolutions />} />
+          <Route path="/leasing/truck-rental" element={<TruckRental />} />
+          <Route path="/leasing/chauffeured-services" element={<ChauffeuredServices />} />
+          <Route path="/contact" element={<ContactUs />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

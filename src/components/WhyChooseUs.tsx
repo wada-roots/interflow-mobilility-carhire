@@ -36,13 +36,13 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-16 bg-blue-900 text-white">
+    <section className="py-16" style={{ background: 'hsl(var(--goldish-background))' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Why Choose Interflow Mobility?
           </h2>
-          <p className="text-xl opacity-90 max-w-3xl mx-auto">
+          <p className="text-xl opacity-90 max-w-3xl mx-auto text-white">
             We're committed to providing exceptional mobility solutions that exceed your expectations 
             with reliability, convenience, and outstanding customer service.
           </p>
@@ -57,10 +57,10 @@ const WhyChooseUs = () => {
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 {benefit.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange-400">
+              <h3 className="text-xl font-semibold mb-3 text-blue-900">
                 {benefit.title}
               </h3>
-              <p className="text-blue-100 leading-relaxed">
+              <p className="text-gray-800 leading-relaxed">
                 {benefit.description}
               </p>
             </div>
