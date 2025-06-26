@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Car, Shield, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Hero = () => {
   return (
@@ -66,14 +66,17 @@ const Hero = () => {
                 Book Now
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white px-10 py-6 text-xl font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-orange-500/25 group bg-transparent"
-              >
-                Explore Fleet
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              {/* Wrapped the "Explore Fleet" button in a Link component */}
+              <Link to="/fleet"> 
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white px-10 py-6 text-xl font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-orange-500/25 group bg-transparent"
+                >
+                  Explore Fleet
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </div>
 
             {/* Stats Section */}
@@ -93,14 +96,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
-      
-      {/* Enhanced Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-8 h-12 border-2 border-orange-400 rounded-full flex items-start justify-center pt-2">
-          <div className="w-1 h-3 bg-orange-400 rounded-full animate-pulse"></div>
-        </div>
-        <p className="text-xs text-center mt-2 text-orange-300 font-medium">Scroll Down</p>
       </div>
     </section>
   );
