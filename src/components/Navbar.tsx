@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Menu, X, ShoppingCart, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [cartItems] = useState(3); // Placeholder cart count
   const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -58,7 +57,7 @@ const Navbar = () => {
     { name: 'FAQs', href: '/faqs', hasDropdown: false },
     {
       name: 'Careers',
-      href: '/', // Consider if this should be a specific page like /careers
+      href: '/careers', // Consider if this should be a specific page like /careers
       hasDropdown: true,
       dropdownItems: [
         { name: 'Career Opportunities', href: '/careers/opportunities' },
@@ -81,8 +80,8 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <img
-                src="/lovable-uploads/42f4dceb-b2d9-44e2-add2-4c025adfc890.png"
-                alt="Alpha Interflow Mobility"
+                src="/lovable-uploads/025f57c4-ae3c-4f97-9de9-bfc89591c07d.png"
+                alt="Interflow Mobility"
                 className="h-10 w-auto"
               />
             </Link>
@@ -123,19 +122,6 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            
-            {/* Cart */}
-            <Link 
-              to="/cart" 
-              className="relative text-white hover:text-orange-400 transition-colors duration-200 ml-4"
-            >
-              <ShoppingCart className="w-6 h-6" />
-              {cartItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  {cartItems}
-                </span>
-              )}
-            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -196,15 +182,6 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            
-            <Link
-              to="/cart"
-              className="text-white hover:text-orange-400 block px-3 py-2 text-base font-medium flex items-center"
-              onClick={() => setIsOpen(false)}
-            >
-              <ShoppingCart className="w-5 h-5 mr-2" />
-              Cart ({cartItems})
-            </Link>
           </div>
         </div>
       )}
