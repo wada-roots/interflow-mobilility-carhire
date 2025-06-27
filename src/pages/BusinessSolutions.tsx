@@ -112,8 +112,6 @@ const BusinessSolutions = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

@@ -151,29 +151,6 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-
-      {/* Map Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Find Us
-            </h2>
-            <p className="text-gray-600">
-              Visit our office in Nairobi CBD for in-person consultations
-            </p>
-          </div>
-          
-          {/* Placeholder for map */}
-          <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-            <p className="text-gray-600">
-              Interactive map will be displayed here
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
     </div>
   );
 };

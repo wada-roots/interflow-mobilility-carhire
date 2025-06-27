@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   // Helper function to convert string to kebab-case URL segment - (Keep if used elsewhere)
-  const toKebabCase = (str) => {
+  const toKebabCase = (str: string) => { // Added type annotation for str
     return str
       .toLowerCase()
       .replace(/\s+/g, '-') // Replace spaces with hyphens
@@ -48,9 +48,9 @@ const Navbar = () => {
       href: '#', // Consider if this should also be a specific page like /fleet-management
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Why Choose Us?', href: '/fleet-management/why-choose-us' },
-        { name: 'Our Services', href: '/fleet-management/our-services' },
-        { name: 'How It Works', href: '/fleet-management/how-it-works' }
+        { name: 'Why Choose Us?', href: '/why-choose-us' },
+        { name: 'Our Services', href: '/our-services' },
+        { name: 'How It Works', href: '/how-it-works' }
       ]
     },
     { name: 'Offers', href: '/offers', hasDropdown: false },
@@ -58,7 +58,7 @@ const Navbar = () => {
     { name: 'FAQs', href: '/faqs', hasDropdown: false },
     {
       name: 'Careers',
-      href: '#', // Consider if this should be a specific page like /careers
+      href: '/', // Consider if this should be a specific page like /careers
       hasDropdown: true,
       dropdownItems: [
         { name: 'Career Opportunities', href: '/careers/opportunities' },
@@ -70,14 +70,13 @@ const Navbar = () => {
     { name: 'About Us', href: '/about', hasDropdown: false },
   ];
 
-  // Removed the unused 'processedNavigationItems' variable.
-  // The 'navigationItems' array is already correctly structured with objects for dropdowns.
-
   return (
-    // Changed background to bg-blue-900 for a dark navbar
     <nav className="bg-blue-900 shadow-lg sticky top-0 z-50">
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      {/* Changed max-w-full to a responsive width for better control, 
+          and added `gap-x-8` (or your preferred large gap) */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
+        {/* Changed justify-between to flex and justify-start */}
+        <div className="flex items-center h-16 justify-start gap-x-8"> 
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
@@ -90,13 +89,13 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Removed space-x-4 from here, spacing will be managed by gap on parent and px/py on links */}
+          <div className="hidden lg:flex items-center"> 
             {navigationItems.map((item) => (
               <div key={item.name} className="relative group">
                 <Link
                   to={item.href}
-                  // Changed text to white and hover to orange-400 for contrast
-                  className="text-white hover:text-orange-400 px-2 py-2 text-sm font-medium flex items-center transition-colors duration-200 whitespace-nowrap"
+                  className="text-white hover:text-orange-400 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-200 whitespace-nowrap"
                   onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)} 
                 >
                   {item.name}
@@ -128,7 +127,6 @@ const Navbar = () => {
             {/* Cart */}
             <Link 
               to="/cart" 
-              // Changed text to white and hover to orange-400
               className="relative text-white hover:text-orange-400 transition-colors duration-200 ml-4"
             >
               <ShoppingCart className="w-6 h-6" />
@@ -141,10 +139,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden">
+          {/* Moved to the right edge within the flex container */}
+          <div className="lg:hidden ml-auto"> 
             <button
               onClick={toggleMenu}
-              // Changed text to white and hover to orange-400
               className="text-white hover:text-orange-400 focus:outline-none"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -155,7 +153,6 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        // Changed background to bg-blue-900 and border to gray-700
         <div className="lg:hidden bg-blue-900 border-t border-gray-700">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navigationItems.map((item) => (
@@ -163,7 +160,6 @@ const Navbar = () => {
                 <div className="flex items-center justify-between">
                   <Link
                     to={item.href}
-                    // Changed text to white and hover to orange-400
                     className="text-white hover:text-orange-400 block px-3 py-2 text-base font-medium flex-1"
                     onClick={() => !item.hasDropdown && setIsOpen(false)}
                   >
@@ -172,7 +168,6 @@ const Navbar = () => {
                   {item.hasDropdown && (
                     <button
                       onClick={() => handleDropdownToggle(item.name)}
-                      // Changed text to white and hover to orange-400
                       className="px-3 py-2 text-white hover:text-orange-400"
                     >
                       <ChevronDown 
@@ -204,7 +199,6 @@ const Navbar = () => {
             
             <Link
               to="/cart"
-              // Changed text to white and hover to orange-400
               className="text-white hover:text-orange-400 block px-3 py-2 text-base font-medium flex items-center"
               onClick={() => setIsOpen(false)}
             >
