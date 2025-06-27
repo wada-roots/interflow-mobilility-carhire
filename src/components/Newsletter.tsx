@@ -25,13 +25,13 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="py-16 bg-[#EFBF04]">
+    <section className="py-16 bg-gradient-to-r from-yellow-400 to-yellow-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Stay Updated with Our Latest Offers
           </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
             Subscribe to our newsletter and be the first to know about special deals, 
             new vehicles, and exclusive promotions.
           </p>
@@ -48,13 +48,13 @@ const Newsletter = () => {
             <Button 
               type="submit"
               disabled={isLoading}
-              className="bg-blue-900 hover:bg-blue-800 text-white px-8 whitespace-nowrap"
+              className="bg-white hover:bg-gray-100 text-yellow-600 px-8 whitespace-nowrap font-semibold"
             >
               {isLoading ? 'Subscribing...' : 'Subscribe'}
             </Button>
           </form>
           
-          <p className="text-sm mt-4 opacity-75">
+          <p className="text-sm mt-4 text-white/75">
             We respect your privacy. Unsubscribe at any time.
           </p>
         </div>

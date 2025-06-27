@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -13,14 +14,6 @@ const Navbar = () => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
 
-  // Helper function to convert string to kebab-case URL segment - (Keep if used elsewhere)
-  const toKebabCase = (str: string) => { // Added type annotation for str
-    return str
-      .toLowerCase()
-      .replace(/\s+/g, '-') // Replace spaces with hyphens
-      .replace(/[^\w-]+/g, ''); // Remove all non-word chars except hyphens
-  };
-
   const navigationItems = [
     { name: 'Home', href: '/', hasDropdown: false },
     {
@@ -31,7 +24,7 @@ const Navbar = () => {
     { name: 'Airport Transfer', href: '/airport-transfer', hasDropdown: false },
     {
       name: 'Leasing',
-      href: '/', // The main Leasing page, if applicable
+      href: '/',
       hasDropdown: true,
       dropdownItems: [
         { name: 'Roadside Assistance', href: '/leasing/roadside-assistance' },
@@ -44,7 +37,7 @@ const Navbar = () => {
     },
     {
       name: 'Fleet Management',
-      href: '#', // Consider if this should also be a specific page like /fleet-management
+      href: '#',
       hasDropdown: true,
       dropdownItems: [
         { name: 'Why Choose Us?', href: '/why-choose-us' },
@@ -57,7 +50,7 @@ const Navbar = () => {
     { name: 'FAQs', href: '/faqs', hasDropdown: false },
     {
       name: 'Careers',
-      href: '/careers', // Consider if this should be a specific page like /careers
+      href: '/careers',
       hasDropdown: true,
       dropdownItems: [
         { name: 'Career Opportunities', href: '/careers/opportunities' },
@@ -70,41 +63,37 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-blue-900 shadow-lg sticky top-0 z-50">
-      {/* Changed max-w-full to a responsive width for better control, 
-          and added `gap-x-8` (or your preferred large gap) */}
+    <nav className="bg-white shadow-lg sticky top-0 z-50 border-b border-yellow-200">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
-        {/* Changed justify-between to flex and justify-start */}
-        <div className="flex items-center h-16 justify-start gap-x-8"> 
-          {/* Logo */}
+        <div className="flex items-center h-20 justify-start gap-x-8"> 
+          {/* Logo - Enlarged */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <img
                 src="/lovable-uploads/025f57c4-ae3c-4f97-9de9-bfc89591c07d.png"
                 alt="Interflow Mobility"
-                className="h-10 w-auto"
+                className="h-16 w-auto"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          {/* Removed space-x-4 from here, spacing will be managed by gap on parent and px/py on links */}
           <div className="hidden lg:flex items-center"> 
             {navigationItems.map((item) => (
               <div key={item.name} className="relative group">
                 <Link
                   to={item.href}
-                  className="text-white hover:text-orange-400 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-200 whitespace-nowrap"
+                  className="text-gray-800 hover:text-yellow-600 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-200 whitespace-nowrap"
                   onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)} 
                 >
                   {item.name}
                   {item.hasDropdown && <ChevronDown className="ml-1 w-4 h-4" />}
                 </Link>
                 
-                {/* Dropdown Menu - kept white background with dark text for readability */}
+                {/* Dropdown Menu */}
                 {item.hasDropdown && (
                   <div 
-                    className="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+                    className="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-yellow-200"
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <div className="py-2">
@@ -112,7 +101,7 @@ const Navbar = () => {
                         <Link
                           key={dropdownItem.name}
                           to={dropdownItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors duration-200"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-700 transition-colors duration-200"
                         >
                           {dropdownItem.name}
                         </Link>
@@ -125,11 +114,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          {/* Moved to the right edge within the flex container */}
           <div className="lg:hidden ml-auto"> 
             <button
               onClick={toggleMenu}
-              className="text-white hover:text-orange-400 focus:outline-none"
+              className="text-gray-800 hover:text-yellow-600 focus:outline-none"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -139,14 +127,14 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="lg:hidden bg-blue-900 border-t border-gray-700">
+        <div className="lg:hidden bg-white border-t border-yellow-200">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navigationItems.map((item) => (
               <div key={item.name}>
                 <div className="flex items-center justify-between">
                   <Link
                     to={item.href}
-                    className="text-white hover:text-orange-400 block px-3 py-2 text-base font-medium flex-1"
+                    className="text-gray-800 hover:text-yellow-600 block px-3 py-2 text-base font-medium flex-1"
                     onClick={() => !item.hasDropdown && setIsOpen(false)}
                   >
                     {item.name}
@@ -154,7 +142,7 @@ const Navbar = () => {
                   {item.hasDropdown && (
                     <button
                       onClick={() => handleDropdownToggle(item.name)}
-                      className="px-3 py-2 text-white hover:text-orange-400"
+                      className="px-3 py-2 text-gray-800 hover:text-yellow-600"
                     >
                       <ChevronDown 
                         className={`w-4 h-4 transition-transform duration-200 ${
@@ -165,14 +153,14 @@ const Navbar = () => {
                   )}
                 </div>
                 
-                {/* Mobile Dropdown - kept white background with dark text for readability */}
+                {/* Mobile Dropdown */}
                 {item.hasDropdown && activeDropdown === item.name && (
-                  <div className="pl-6 space-y-1 bg-white border-l border-gray-200 rounded-md">
+                  <div className="pl-6 space-y-1 bg-yellow-50 border-l-2 border-yellow-200 rounded-md">
                     {item.dropdownItems?.map((dropdownItem) => (
                       <Link
                         key={dropdownItem.name}
                         to={dropdownItem.href}
-                        className="text-gray-700 hover:text-blue-900 block px-3 py-2 text-sm"
+                        className="text-gray-700 hover:text-yellow-700 block px-3 py-2 text-sm"
                         onClick={() => setIsOpen(false)}
                       >
                         {dropdownItem.name}

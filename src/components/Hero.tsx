@@ -13,29 +13,29 @@ const Hero = () => {
       id: 1,
       category: "Premium",
       tagline: "Luxury Redefined",
-      image: "https://images.unsplash.com/photo-1563720223185-11003d516935?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      alt: "Premium luxury car"
+      image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      alt: "Mercedes E-Class luxury car"
     },
     {
       id: 2,
       category: "Economy",
       tagline: "Smart & Efficient",
-      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      alt: "Economy car"
+      image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      alt: "Toyota Corolla economy car"
     },
     {
       id: 3,
       category: "SUV",
       tagline: "Adventure Awaits",
-      image: "https://images.unsplash.com/photo-1544829099-b9a0c5303bea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      alt: "SUV vehicle"
+      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      alt: "Toyota Land Cruiser SUV"
     },
     {
       id: 4,
       category: "Bus",
       tagline: "Group Travel Excellence",
-      image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      alt: "Bus for group travel"
+      image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      alt: "Luxury Coach bus"
     }
   ];
 
@@ -63,7 +63,7 @@ const Hero = () => {
 
   return (
     <section 
-      className="relative h-screen w-full overflow-hidden"
+      className="relative h-screen w-full overflow-hidden bg-white"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -82,17 +82,17 @@ const Hero = () => {
               style={{ backgroundImage: `url('${slide.image}')` }}
             />
             
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+            {/* White-Gold Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent" />
             
             {/* Content */}
             <div className="relative h-full flex flex-col justify-between p-6 md:p-8 lg:p-12">
               {/* Top Left - Category & Tagline */}
               <div className="flex-shrink-0">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-2">
                   {slide.category}
                 </h2>
-                <p className="text-xl md:text-2xl text-orange-300 font-light">
+                <p className="text-xl md:text-2xl text-yellow-600 font-light">
                   {slide.tagline}
                 </p>
               </div>
@@ -102,7 +102,7 @@ const Hero = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button 
                     size="lg" 
-                    className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-orange-500/25 group"
+                    className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-yellow-500/25 group border-0"
                   >
                     BOOK NOW
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -112,7 +112,7 @@ const Hero = () => {
                     <Button 
                       variant="outline" 
                       size="lg"
-                      className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-transparent backdrop-blur-sm"
+                      className="border-2 border-yellow-500 text-yellow-600 hover:bg-yellow-50 hover:text-yellow-700 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-white/80 backdrop-blur-sm group"
                     >
                       EXPLORE FLEET
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -128,18 +128,18 @@ const Hero = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 group"
+        className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 group shadow-lg"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6 text-white group-hover:text-orange-300 transition-colors" />
+        <ChevronLeft className="w-6 h-6 text-yellow-600 group-hover:text-yellow-700 transition-colors" />
       </button>
       
       <button
         onClick={nextSlide}
-        className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 group"
+        className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 group shadow-lg"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6 text-white group-hover:text-orange-300 transition-colors" />
+        <ChevronRight className="w-6 h-6 text-yellow-600 group-hover:text-yellow-700 transition-colors" />
       </button>
 
       {/* Dot Indicators */}
@@ -150,18 +150,18 @@ const Hero = () => {
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide 
-                ? 'bg-orange-500 scale-125' 
-                : 'bg-white/50 hover:bg-white/75'
+                ? 'bg-yellow-500 scale-125' 
+                : 'bg-white/70 hover:bg-white'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
 
-      {/* Progress Bar (Optional) */}
+      {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
         <div 
-          className="h-full bg-orange-500 transition-all duration-300 ease-linear"
+          className="h-full bg-gradient-to-r from-yellow-400 to-yellow-500 transition-all duration-300 ease-linear"
           style={{ 
             width: `${((currentSlide + 1) / slides.length) * 100}%` 
           }}
